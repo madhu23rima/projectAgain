@@ -17,6 +17,7 @@ recipe: Recipe
    this.route.params.subscribe( (params: Params) =>{
     const index = +params['id'];
     this.recipe = this.recipeService.getRecipe(index);
+    console.log('Inside recipe detail')
    });
 
   }

@@ -1,20 +1,20 @@
 <div class="row">
   <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
     
-    <form (ngSubmit)="onSubmit()" #f ="ngForm" >
+    <form (ngSubmit)="onSubmit()" #f="ngForm" >
       <div class ="form-group">
         <label for="email" >Email</label>
         <input type="email" class="form-control" id="email" placeholder="Enter Email"
-        ngModel name="email" required email>      
+        required email  [(ngModel)] ="model.email" name ="email" >      
       </div>
           <div class ="form-group">
             <label for="password" >Password</label>
             <input type="password" class="form-control" id="password" 
-            ngModel name="password" required >      
+             required [(ngModel)] ="model.password" name="password">      
           </div>
           <button 
           type="submit"
-          class="btn btn-success" [disabled] = "!f.valid">Save</button>
+          class="btn btn-success" [disabled] ="!f.valid" >Save</button>
     </form> 
  </div> 
   </div>

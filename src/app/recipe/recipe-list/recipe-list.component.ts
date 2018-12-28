@@ -1,6 +1,8 @@
 import { Component, OnInit,Injectable } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe.model';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -12,14 +14,18 @@ import { Recipe } from '../recipe.model';
 @Injectable()
 export class RecipeListComponent implements OnInit {
  recipes:Recipe[];
-  constructor(private recipeService: RecipeService) {
+  constructor(private recipeService: RecipeService, private router: Router,
+     private route : ActivatedRoute) {
   
    }
 
   ngOnInit() {
     this.recipes = this.recipeService.getRecipes();
-    console.log('list initiated');
-    console.log(this.recipes);
+ 
+  }
+
+  onNewRecipe(){
+    this.router.navigate(['new'], {relativeTo : this.route});
   }
 
 }
